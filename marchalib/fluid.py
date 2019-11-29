@@ -1,8 +1,4 @@
 import numpy as np
-import healpy as hp
-import pylab
-import matplotlib.pyplot as plt
-from astropy import constants as const
 
 m_h = 1.6737236e-27 #kg                              
 

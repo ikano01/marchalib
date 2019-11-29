@@ -1,7 +1,6 @@
 import numpy as np
 from astropy import units as u
 from scipy.optimize import fsolve
-import matplotlib.pyplot as plt
 
 class wolfire(object):
         def __init__(self, T=3000, n=0.5, phi=0.5, G0=1.7, Zd=1., zeta=1., Zg=1, fCII=1., Ac=1.4e-4, Ao=3.2e-4, Nw=1.e19):
