@@ -25,6 +25,8 @@ setup(
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=[
             'numpy',
+	    'statsmodels',
+	    'scipy',
     ],
     include_package_data=True
 )

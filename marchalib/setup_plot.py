@@ -1,13 +1,8 @@
+import os
 import numpy as np
 import colorcet as cc
 import matplotlib
 import matplotlib.pyplot as plt
-
-def planckct():
-    colombi1_cmap = matplotlib.colors.ListedColormap(np.loadtxt("/home/amarchal/library/turbulence/turbulence/Planck_Parchment_RGB.txt")/255.)
-    colombi1_cmap.set_bad("white")
-    colombi1_cmap.set_under("white")
-    return colombi1_cmap
 
 cm_coolwarm = cc.cm["coolwarm"]
 cm_coolwarm.set_bad(color='white')
@@ -36,6 +31,9 @@ cm_cubehelix = plt.get_cmap('cubehelix')
 cm_cubehelix.set_bad(color='black')
 imkw_cubehelix = dict(origin='lower', interpolation='none', cmap=cm_cubehelix)
 
-imkw_planck = dict(origin='lower', interpolation='none', cmap=planckct())
+# cm_planck = matplotlib.colors.ListedColormap(np.loadtxt("Planck_Parchment_RGB.txt")/255.)
+# cm_planck.set_bad("white")
+# cm_planck.set_under("white")
+# imkw_planck = dict(origin='lower', interpolation='none', cmap=cm_planck)
 
 
