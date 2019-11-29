@@ -1,0 +1,50 @@
+        def jnk_azimuthalAverage(self, image, nb_point=20, bin_type="logscale"):
+                """
+                Calculate the azimuthally averaged radial profile.
+                
+                image - The 2D image
+                center - The [x,y] pixel coordinates used as the center. The default is 
+                None, which then uses the center of the image (including 
+                fracitonal pixels).
+                
+                """
+                if self.shape[0] != self.shape[0]:
+                        "Warning : Two dimensions are not the same / Be careful with the 2D Spatial Power Spectrum"
+                        
+                # Calculate the indices from the image
+                y, x = np.indices(self.shape)
+                
+                center = np.array([(x.max()-x.min())/2.0, (x.max()-x.min())/2.0])
+                
+                r = np.hypot(x - center[0], y - center[1])
+                        
+                # Get sorted radii
+                ind = np.argsort(r.flat)
+                r_sorted = r.flat[ind]
+                i_sorted = image.flat[ind]
+                
+                # Get the integer part of the radii (bin size = 1)
+                r_int = r_sorted.astype(int)
+                
+                # # Find all pixels that fall within each radial bin.
+                # if bin_type == "logscale":
+                #         bins = np.logspace(np.log10(r_sorted.min()), np.log10(self.shape[0]/2.), nb_point)
+                # elif bin_type == "logscale":
+                #         bins = np.linspace(r_sorted.min(), self.shape[0]/2., nb_point)
+                # else:
+                #         print("Choose between linspace and logspace")
+
+                # idxs = [np.where((r_sorted > bins[i]) & (r_sorted < bins[i+1])) for i in np.arange(len(bins))-1]
+                # profile = [np.nanmedian(i_sorted[idx]) for idx in idxs]
+                # print profile
+
+                deltar = r_int[1:] - r_int[:-1]  # Assumes all radii represented
+                rind = np.where(deltar)[0]       # location of changed radius
+                nr = rind[1:] - rind[:-1]        # number of radius bin
+                # Cumulative sum to figure out sums for each radius bin
+                csim = np.cumsum(i_sorted, dtype=float) 
+                tbin = csim[rind[1:]] - csim[rind[:-1]]
+
+                radial_prof = tbin / nr
+
+                return radial_prof
