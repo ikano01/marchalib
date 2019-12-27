@@ -104,3 +104,31 @@ def powspec(image, reso=1, autocorr=False, **kwargs):
 		tab_k = kval[1:np.size(hval)-1] * reso
     
 	return tab_k, spec_k
+
+
+def kgrid(image):
+
+	na=float(image.shape[1])
+	nb=float(image.shape[0])
+	
+	x=np.arange(na)
+	y=np.arange(nb)
+	x,y=np.meshgrid(x,y)
+
+	if (na % 2) == 0:
+		x = (1.*x - ((na)/2.) ) / na
+		shiftx = (na)/2.
+	else:
+		x = (1.*x - (na-1)/2.)/ na
+		shiftx = (na-1.)/2.+1
+
+	if (nb % 2) == 0:
+		y = (1.*y - ((nb/2.)) ) / nb
+		shifty = (nb)/2.
+	else:
+		y = (1.*y - (nb-1)/2.)/ nb
+		shifty = (nb-1.)/2+1
+
+	kmat = np.sqrt(x**2 + y**2)
+    
+	return kmat

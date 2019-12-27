@@ -11,10 +11,10 @@ def lsr2helio(l, b, vlsr, reverse=False):
     s=ut*c1+vt*c2+wt*c3
     if reverse==False:
         vhelio=vlsr-s
-        print vhelio
+        print(vhelio)
         return vhelio
     else:
         vhelio=vlsr+s
-        print vhelio
+        print(vhelio)
         return vhelio
 

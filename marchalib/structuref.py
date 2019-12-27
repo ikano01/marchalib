@@ -2,7 +2,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import integrate
-from powerspectrum import PowerS
+# from powerspectrum import PowerS
 from fBms import fBmnd
 from scipy import stats
 
@@ -167,9 +167,9 @@ if __name__ == '__main__':
     beta1, intercept1, r_value1, p_value1, std_err1 = stats.linregress(np.log10(rs),np.log10(np.abs(F2_from_SPS)))
     beta2, intercept2, r_value2, p_value2, std_err2 = stats.linregress(np.log10(l)[10:30],np.log10(np.abs(SF2)[10:30]))
     
-    print "True", beta - 2.
-    print "from SPS", beta1
-    print "from map", beta2
+    print("True"), beta - 2.
+    print("from SPS"), beta1
+    print("from map"), beta2
     # print slope #FIXME
 
     #Test new ESS AM

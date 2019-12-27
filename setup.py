@@ -9,7 +9,7 @@ with open('/home/amarchal/library/marchalib/LICENSE') as f:
 
 setup(
     name='marchalib',
-    version='0.1.1',
+    version='0.1.5',
     description='A. Marchal library',
     long_description=readme,
     classifiers=[
@@ -27,6 +27,8 @@ setup(
             'numpy',
 	    'statsmodels',
 	    'scipy',
+	    'astropy',
+	    'colorcet',
     ],
     include_package_data=True
 )
