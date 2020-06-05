@@ -29,6 +29,9 @@ setup(
 	    'scipy',
 	    'astropy',
 	    'colorcet',
+	    'healpy',
+	    'galpy',
+	    'pynverse',
     ],
     include_package_data=True
 )
