@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-                                                                                                                                                                                                                             
 from setuptools import setup, find_packages
 
-with open('/home/amarchal/library/marchalib/Readme.md') as f:
+with open('Readme.md') as f:
         readme = f.read()
 
-with open('/home/amarchal/library/marchalib/LICENSE') as f:
+with open('LICENSE') as f:
     license = f.read()
 
 setup(
     name='marchalib',
-    version='0.1.5',
+    version='0.1.6',
     description='A. Marchal library',
     long_description=readme,
     classifiers=[

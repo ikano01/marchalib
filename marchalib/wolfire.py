@@ -89,6 +89,7 @@ class wolfire(object):
             
         def loss(self):
             return self.heat() + self.heatXR() - self.cool()
+            # return self.heat() - self.cool()
 
         # def PminJenkins(self):
         #         return 5730. * (Zd * 1.)  * (Zd / (1. + 2.08*(Zd * 1.)**0.365)) #FIXME I/I0
