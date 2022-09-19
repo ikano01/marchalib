@@ -1,5 +1,39 @@
 import numpy as np
 
+def apodize_1d(radius, shape):
+    """                                                                                                                                                                                                                                                               
+    Create edges apodization tapper 1d
+    
+    Parameters
+    ----------
+    nx : integer
+    size of the tapper
+    radius : float
+    radius must be lower than 1 and greater than 0.
+    
+    Returns
+    -------
+    
+    tapper : numpy array ready to multiply on your spectrum
+    to apodize edges     
+    """
+    nx = shape
+
+    if (radius >= 1) or (radius <= 0.):
+        print('Error: radius must be lower than 1 and greater than 0.')
+        return
+
+    nj = np.fix(radius*nx)
+    dnj = int(nx-nj)
+
+    tap1d_x = np.ones(nx)
+
+    tap1d_x[0:dnj] = (np.cos(3. * np.pi/2. + np.pi/2. * (1.* np.arange( dnj )/(dnj-1)) ))
+    tap1d_x[nx-dnj:] = (np.cos(0. + np.pi/2. * (1.* np.arange(dnj)/(dnj-1)) ))
+
+    return tap1d_x
+
+
 def apodize(radius, shape):
     """
     Create edges apodization tapper

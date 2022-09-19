@@ -10,7 +10,7 @@ m_h = 1.6737236e-27 #kg
 #     return m_h * (sigma_therm*1.e3)**2 / const.k_B.value # K
 
 def kinetic_T(sigma_obs, mach):
-    return 121. * sigma_obs**2. / ((mach**2./4.2) + 1)
+    return 121. * sigma_obs**2. / ((mach**2./4.2) + 1) #4.2 wrong
 
 def PDF2mach(sigma,zeta,D):
     b = 1. + ((1./D) - 1.)*zeta

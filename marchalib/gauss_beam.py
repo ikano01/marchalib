@@ -74,13 +74,13 @@ def ellip_beam(smaj, smin, theta, shape, FWHM=False):
    else:
 	   ymap = ymap - (ny-1.)/2.
                 
-   map = np.sqrt(xmap**2.+ymap**2.)
+   # map = np.sqrt(xmap**2.+ymap**2.)
    
    if FWHM == True:	
       smaj = smaj / (2.*np.sqrt(2.*np.log(2.)))
       smin = smin / (2.*np.sqrt(2.*np.log(2.)))
    
-   ellip = np.exp(- ( (0.5*(map)**2./smaj**2.) + (0.5*(map)**2./smin**2.) ) )
+   ellip = np.exp(- ( (0.5*(xmap)**2./smaj**2.) + (0.5*(ymap)**2./smin**2.) ) )
 
    return ellip
 	
