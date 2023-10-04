@@ -95,8 +95,8 @@ def powspec(image, reso=1, autocorr=False, **kwargs):
 
 	for j in range(int(k_crit)):
 
-		kval[j] = np.sum(k_mod[k_mod == np.float(j)]) / hval[j]
-		kpow[j] = np.sum(ps2D[k_mod == np.float(j)]) / hval[j]
+		kval[j] = np.sum(k_mod[k_mod == float(j)]) / hval[j]
+		kpow[j] = np.sum(ps2D[k_mod == float(j)]) / hval[j]
 
 	spec_k = kpow[1:np.size(hval)-1]
 
@@ -221,8 +221,8 @@ def cross_spec(image, image2, reso=1):
 
 	for j in range(int(k_crit)):
 
-		kval[j] = np.sum(k_mod[k_mod == np.float(j)]) / hval[j]
-		kpow[j] = np.sum(ps2D[k_mod == np.float(j)]) / hval[j]
+		kval[j] = np.sum(k_mod[k_mod == float(j)]) / hval[j]
+		kpow[j] = np.sum(ps2D[k_mod == float(j)]) / hval[j]
 
 	spec_k = kpow[1:np.size(hval)-1]
 
