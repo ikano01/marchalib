@@ -90,8 +90,8 @@ def padding(input, fact):
     
     output = np.zeros((y,x))
     
-    xpos = np.int(x/2 - width/2)
-    ypos = np.int(y/2 - height/2)
+    xpos = int(x/2 - width/2)
+    ypos = int(y/2 - height/2)
     
     output[ypos:height+ypos,xpos:width+xpos] = input                
 
@@ -106,8 +106,8 @@ def depad(input, fact):
     
     output = np.zeros((y,x))
     
-    xpos = np.int(width/2 - x/2)
-    ypos = np.int(height/2 - y/2)
+    xpos = int(width/2 - x/2)
+    ypos = int(height/2 - y/2)
     
     output = input[ypos:y+ypos,xpos:x+xpos]                
 
